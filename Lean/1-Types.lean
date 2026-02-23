@@ -4,10 +4,13 @@ namespace DaoFP
 inductive Void : Type
 
 -- Unique arrow from the initial Void to any type α
--- Since Void has no constructor, 
+-- Since Void has no constructor,
 -- no element of Void can be passed to this function
 def absurd {α : Type} (v : Void) : α :=
   nomatch v
+
+def absurd2 {α : Type} : Void → α
+  | v => nomatch v
 
 -- Unique arrow from any type α to Unit -- the terminal type
 -- In Lean, the terminal type is Unit and its only element is ()
